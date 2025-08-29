@@ -1,20 +1,20 @@
-from rest_framework import generics, viewsets 
+from rest_framework import generics
 
-from api.answer.serializers import AnswerSerializer
-from api.question.serializers import QuestionSerializer
+from api.question.serializers import (
+    QuestionDetailSerializer, QuestionSerializer)
 from application.models.question import Question
 
 
-class AnswerCreateView(generics.CreateAPIView):
-    """Класс для создания объекта ответа на вопрос."""
-
-    serializer_class = AnswerSerializer
-    lookup_field = 'id'
-
-
-class QuestionViewSet(viewsets.ModelViewSet):
-    """Класс для операций с объектами вопросов."""
+class QuestionView(generics.ListCreateAPIView):
+    """Класс для создания вопроса и вывода списка вопросов."""
 
     queryset = Question.objects.all()
     serializer_class = QuestionSerializer
-    http_method_names = ('get', 'post', 'delete',)
+
+
+class QuestionDetailView(generics.RetrieveDestroyAPIView):
+    """Класс для отображения и удаления записи."""
+
+    queryset = Question.objects.all()
+    serializer_class = QuestionDetailSerializer
+    lookup_field = 'id'
