@@ -2,7 +2,9 @@ from django.shortcuts import get_object_or_404
 from rest_framework import generics
 
 from api.answer.serializers import (
-    AnswerCreateSerializer, AnswerDetailSerializer)
+    AnswerCreateSerializer,
+    AnswerDetailSerializer,
+)
 from application.models.answer import Answer
 from application.models.question import Question
 
@@ -20,7 +22,8 @@ class AnswerCreateView(generics.CreateAPIView):
 
     serializer_class = AnswerCreateSerializer
 
-    def perform_create(self, serializer):
+    def perform_create(self, serializer) -> None:
+        """Метод устанавливает поле question для объекта ответа."""
         question_id = self.kwargs['id']
         question = get_object_or_404(Question, id=question_id)
         serializer.save(question=question)

@@ -8,11 +8,11 @@ class QuestionSerializer(serializers.ModelSerializer):
     """Сериализатор для вопросов."""
 
     class Meta:
-        fields = ('id', 'text',)
+        fields = ('id', 'text')
         read_only_fields = ('id',)
         model = Question
         extra_kwargs = {
-            'text': {'required': True, 'allow_blank': False}
+            'text': {'required': True, 'allow_blank': False},
         }
 
 
@@ -22,5 +22,5 @@ class QuestionDetailSerializer(serializers.ModelSerializer):
     answer = AnswerCreateSerializer(many=True, read_only=True)
 
     class Meta:
-        fields = ('id', 'text', 'answer',)
+        fields = ('id', 'text', 'answer')
         model = Question

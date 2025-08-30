@@ -4,7 +4,7 @@ from application.constants import MAX_TEXT_LENGTH
 
 
 class BaseModel(models.Model):
-    '''Базовая модель для моделей вопросов и ответов.'''
+    """Базовая модель для моделей вопросов и ответов."""
 
     create_at = models.DateTimeField(auto_now_add=True)
     text = models.CharField(

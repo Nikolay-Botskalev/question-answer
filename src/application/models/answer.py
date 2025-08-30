@@ -4,7 +4,7 @@ from application.models.base_model import BaseModel
 
 
 class Answer(BaseModel):
-    '''Модель ответа.'''
+    """Модель ответа."""
 
     question = models.ForeignKey(
         'Question', on_delete=models.CASCADE, related_name='answer')

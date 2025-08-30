@@ -1,0 +1,8 @@
+asgiref==3.9.1
+Django==4.2.1
+djangorestframework==3.16.1
+load-dotenv==0.1.0
+python-dotenv==1.1.1
+ruff==0.12.11
+sqlparse==0.5.3
+tzdata==2025.2

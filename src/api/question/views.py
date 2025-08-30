@@ -1,7 +1,9 @@
 from rest_framework import generics
 
 from api.question.serializers import (
-    QuestionDetailSerializer, QuestionSerializer)
+    QuestionDetailSerializer,
+    QuestionSerializer,
+)
 from application.models.question import Question
 
 
