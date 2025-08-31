@@ -6,7 +6,7 @@ target-version = "py312"
 preview = true
 
 exclude = [
-    ".migrations",
+    "migrations",
     "manage.py",
     "settings.py",
 ]
